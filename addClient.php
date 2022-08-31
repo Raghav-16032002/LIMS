@@ -78,13 +78,13 @@ Client ID:       <input type="text" name="client_id" value="<?php echo"$uniqueId
 Client Password: <input type="text" name="client_password" required placeholder="Enter Password"><br>
 Name:            <input type="text" name="name" required placeholder="Enter Name"><br>
 Image		     <input class="img" type="file" name="fileToUpload"/ required> </br>
-GENDER:          &nbsp;&nbsp;<input type="radio" name="sex" required>&nbsp; Male
-                 &nbsp;&nbsp;<input type="radio" name="sex" required>&nbsp; Female
-                 &nbsp;&nbsp;<input type="radio" name="sex" required>&nbsp; Other<br><br>
+GENDER:          &nbsp;&nbsp;<input type="radio" name="sex" required value="Male">&nbsp; Male
+                 &nbsp;&nbsp;<input type="radio" name="sex" required value="Female">&nbsp; Female
+                 &nbsp;&nbsp;<input type="radio" name="sex" required value="Other">&nbsp; Other<br><br>
 Birth Date:      &nbsp;&nbsp;<input type="date" name="birth_date" required><br><br>
-Marital Status:  &nbsp;&nbsp;<input type="radio" name="maritial_status" required>&nbsp;Single
-                 &nbsp;&nbsp;<input type="radio" name="maritial_status" required>&nbsp;Married
-                 &nbsp;&nbsp;<input type="radio" name="maritial_status" required>&nbsp;Divorce<br><br>
+Marital Status:  &nbsp;&nbsp;<input type="radio" name="maritial_status" value="Single" required>&nbsp;Single
+                 &nbsp;&nbsp;<input type="radio" name="maritial_status" value="Married" required>&nbsp;Married
+                 &nbsp;&nbsp;<input type="radio" name="maritial_status" value="Divorce" required>&nbsp;Divorce<br><br>
 National ID:     <input type="text" name="nid" required placeholder="Enter National ID"><br>
 Phone:           <input type="text" name="phone" required placeholder="Enter Phone Number"><br>
 Address:         <input type="text" name="address" required placeholder="Enter Policy ID"><br>
@@ -95,9 +95,9 @@ Agent ID:        <input type="text" name="agent_id" value="<?php echo $_SESSION[
 
 Nominee ID:    <input type="text" name="nominee_id" value="<?php echo"$uniqueId2"; ?>" required> <br>
 Name:          <input type="text" name="nominee_name" required><br><br>
-GENDER:          &nbsp;&nbsp;<input type="radio" name="nominee_sex" required>&nbsp; Male
-                 &nbsp;&nbsp;<input type="radio" name="nominee_sex" required>&nbsp; Female
-                 &nbsp;&nbsp;<input type="radio" name="nominee_sex" required>&nbsp; Other<br><br>
+GENDER:          &nbsp;&nbsp;<input type="radio" name="nominee_sex" value="Male" required>&nbsp; Male
+                 &nbsp;&nbsp;<input type="radio" name="nominee_sex" value="Female" required>&nbsp; Female
+                 &nbsp;&nbsp;<input type="radio" name="nominee_sex" value="Other" required>&nbsp; Other<br><br>
                  <!-- <input type="text" name="nominee_sex" required><br> -->
 Birth Date:    <input type="date" name="nominee_birth_date" required><br><br>
 National ID:   <input type="text" name="nominee_nid" required placeholder="Enter National ID"><br>

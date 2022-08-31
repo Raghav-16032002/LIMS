@@ -8,19 +8,24 @@ if(isset($_SESSION["username"])){
 
 <head>
 <style>
+.login{
+  text-align:center;
+  margin-top:20px
+}
 
 .container{
 	width: 450px;
-    height: 700px;
-    margin:auto;
-	margin-top: 4%;
+  height: 700px;
+  margin:auto;
+	margin-top: 6%;
+  margin-left:37%;
 	padding-top: 1px;
 	
 }
 
 .login-page {
   width: 360px;
-  padding: 8% 0 0;
+  padding: 8% 0 0 0;
   margin: auto;
 }
 .form {
@@ -65,7 +70,7 @@ if(isset($_SESSION["username"])){
 
 
 
-
+/* 
 .imgs{
 	    margin-top: 0%;
 	    margin-left: 34%;
@@ -73,12 +78,13 @@ if(isset($_SESSION["username"])){
 		height: 20%;
 		
 	
-}
+} */
 
 
 </style>
 <title>Login Page</title>
 </head>
+<br><h1 class="Login">Login Page</h1>
 <!-- <img class="imgs" src="" alt="Login Logo"> -->
 <div class="container">
 	<div class="login-page">
