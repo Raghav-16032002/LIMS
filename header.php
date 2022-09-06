@@ -20,11 +20,11 @@
 	
             <div class="navbar-header">
                 	
-                <a class="navbar-brand" href="index.php">Aarav Life</a>
+                <a class="navbar-brand" href="index.php">aa</a>
             </div>
 
             <div class="header-right">
-			
+                 <B style="font-size:20px;font-weight:900">Logout</B>
                  <a href="<?php echo "logout.php" ?>" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
 
             </div>
@@ -42,7 +42,7 @@
 									if(!isset($_SESSION["username"])){
 										header("Location: index.php");
 									}else {
-										echo "welcome, ".$_SESSION["username"];
+										echo "Welcome, ".$_SESSION["username"]."  :)";
 									}
 								?>
                             <br />

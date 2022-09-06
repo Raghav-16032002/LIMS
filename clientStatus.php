@@ -12,6 +12,16 @@ input[type=text], select {
     box-sizing: border-box;
 	
 }
+input[type=password], select {
+    width: 100%;
+    padding: 8px 12px;
+    margin: 1px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-sizing: border-box;
+	
+}
 
 
 input[type=submit]:hover {
@@ -89,7 +99,7 @@ $username = $_SESSION["username"];
 		echo "<label for=\"fname\">CLIENT ID</label>";
 	    echo "<input disabled type=\"text\" client_id=\"fname\" name=\"client_id\" placeholder=\"clients id..\" value=\"$row[client_id]\">";
 		echo "<label for=\"fname\">CLIENT PASSWORD</label>";
-	    echo "<input disabled type=\"text\" client_id=\"fname\" name=\"client_password\" placeholder=\"client password..\" value=\"$row[client_password]\">";
+	    echo "<input disabled type=\"Password\" client_id=\"fname\" name=\"client_password\" placeholder=\"client password..\" value=\"$row[client_password]\">";
 		echo "<label for=\"fname\">NAME</label>";
 	    echo "<input disabled type=\"text\" client_id=\"fname\" name=\"name\" placeholder=\"clients Name..\" value=\"$row[name]\">";
 		echo "<label for=\"fname\">GENDER</label>";
@@ -98,7 +108,7 @@ $username = $_SESSION["username"];
 		echo "<input disabled type=\"text\" client_id=\"fname\" name=\"birth_date\" placeholder=\"clients Birth Date..\" value=\"$row[birth_date]\">";
 		echo "<label for=\"fname\">MARITIAL STATUS</label>";
 		echo "<input disabled type=\"text\" client_id=\"fname\" name=\"marital_status\" placeholder=\"clients Maritial Status..\" value=\"$row[marital_status]\">";
-		echo "<label for=\"fname\">NID</label>";
+		echo "<label for=\"fname\">National ID</label>";
 		echo "<input disabled type=\"text\" client_id=\"fname\" name=\"nid\" placeholder=\"clients NID..\" value=\"$row[nid]\">";
 		echo "<label for=\"fname\">PHONE</label>";
 		echo "<input disabled type=\"text\" client_id=\"fname\" name=\"phone\" placeholder=\"clients Phone..\" value=\"$row[phone]\">";
