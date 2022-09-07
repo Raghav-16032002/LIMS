@@ -284,11 +284,11 @@ echo '</div>';
 		echo "  </tr>";
 	}
 	}
-	
+  
 	echo "</table>\n";
 
 	if($agent_id== $username || "Admin" == $username){
-			echo "<td>"."<a href='deleteClient.php?client_id=".$client_id. "'>Delete Client</a>"."</td>\n";
+			echo "<td>"."<a  href='deleteClient.php?client_id=".$client_id."'>Delete Client</a>"."</td>\n";
 		}else {
 			echo "<td>"."<a class=\"dis\" href='deleteClient.php?client_id=".$row["client_id"]. "'>Delete Client</a>"."</td>\n";
 		}

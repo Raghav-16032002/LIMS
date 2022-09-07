@@ -70,8 +70,8 @@ $uniqueId2 = time().'-'.mt_rand();
                     <div class="col-md-12">
                         <h1 class="page-head-line">Add Client</h1>
 						
-                    
-                
+
+             
 
 <form action="insertClient.php" method="post" enctype="multipart/form-data">
 Client ID:       <input type="text" name="client_id" value="<?php echo"$uniqueId"; ?>" required><br>
@@ -86,7 +86,46 @@ Marital Status:  &nbsp;&nbsp;<input type="radio" name="maritial_status" value="S
                  &nbsp;&nbsp;<input type="radio" name="maritial_status" value="Married" required>&nbsp;Married
                  &nbsp;&nbsp;<input type="radio" name="maritial_status" value="Divorce" required>&nbsp;Divorce<br><br>
 National ID:     <input type="text" name="nid" required placeholder="Enter National ID"><br>
-Phone:           <input type="text" name="phone" required placeholder="Enter Phone Number"><br>
+Phone:           <input type="text" name="phone" required placeholder="Enter Phone Number">
+<?php
+// if(isset($_POST['submit'])){
+//     $mb=$phoneno="";
+//     $count=0;
+
+//     //Mobile number
+//     if (empty($_POST['phone'])) {
+//          $mb = "required";
+//          echo $mb;
+//          $count=1;
+
+//     }
+
+//     else 
+//      {
+        
+//          if (preg_match("/^[0-9]*$/",$_POST['phone'])) {
+//             if(strlen($_POST['phone'])==10)
+//             {
+//                 $phoneno=$_POST['phone'];
+//                 $count=5;
+//             }
+//             else
+//             {
+//                 $mb="Please Check Phone Number";
+//                 echo $mb;
+//                 $count=1;
+//             }
+//          }
+//          else
+//          {
+//             $mb="use only numbers";
+//             echo $mb;
+//             $count=1;
+//          }
+//      }
+// }
+// ?>
+<br>
 Address:         <input type="text" name="address" required placeholder="Enter Policy ID"><br>
 Policy ID:       <input type="text" name="policy_id" required placeholder="Enter Agent ID"><br>
 Agent ID:        <input type="text" name="agent_id" value="<?php echo $_SESSION["username"]; ?>" required><br>
@@ -106,11 +145,30 @@ Priority:      <input type="text" name="priority" required placeholder="Enter Pr
 Phone:         <input type="text" name="nominee_phone" required placeholder="Enter Phone"><br>
 
 
-<input type="submit">
+<input type="submit" name="submit">
 
 </form>
 				
-				
+<?php
+// if($count=5){
+//     header('location:InsertClient.php');
+// }
+// if(isset($_POST['submit'])){
+//     //Mobile number
+//     if (empty($_POST['phone'])) {
+//         $mb = "required";
+//     }
+//     else {
+        
+//         if (strlen((string)$_POST['phone']) == 10) {
+//             $mb = (int)$_POST['mobnum'];
+//         }
+//         else {
+//             $mb = "mobile number has 10 digit length";
+//         }
+//     }
+// }
+?>				 
 &nbsp;
                 </div>
 
@@ -123,7 +181,6 @@ Phone:         <input type="text" name="nominee_phone" required placeholder="Ent
     <!-- /. WRAPPER  -->
 
    
-    
 
 
 </body>

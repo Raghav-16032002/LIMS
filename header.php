@@ -20,7 +20,7 @@
 	
             <div class="navbar-header">
                 	
-                <a class="navbar-brand" href="index.php">aa</a>
+                <a class="navbar-brand" href="index.php">ASHRAG</a>
             </div>
 
             <div class="header-right">

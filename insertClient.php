@@ -116,10 +116,12 @@ tr:nth-child(even) {
 		// Check if image file is a act
 			$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 			if($check !== false) {
-				echo "Cliensts profile picture uploaded- " . $check["mime"] . "."; echo '</br>';
+				echo "<div style='font-size:30px;color:black'>Cliensts profile picture uploaded- </div>" . $check["mime"] . "."; echo '</br>';
+				// echo "Cliensts profile picture uploaded- " . $check["mime"] . "."; echo '</br>';
 				$uploadOk = 1;
 			} else {
-				echo "File is not an image."; echo '</br>';
+				echo "<div style='font-size:30px;color:black'>File is not an image.</div> "; echo '</br>';
+				// echo "File is not an image."; echo '</br>';
 				$uploadOk = 0;
 			}
 		
@@ -127,20 +129,23 @@ tr:nth-child(even) {
 		$uploadOk == 1;
 		// Check if $uploadOk is set to 0 by an error
 		if ($uploadOk == 0) {
-			echo "Sorry, your file was not uploaded.";  echo '</br>';
+			echo "<div style='font-size:30px;color:black'>Sorry, your file was not uploaded.</div>";  echo '</br>';
+			// echo "Sorry, your file was not uploaded.";  echo '</br>';
 		// if everything is ok, try to upload file
 		} else {
 			if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 			//	echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
 			} else {
-				echo "Sorry, there was an error uploading your file.";   echo '</br>';
+				echo "<div style='font-size:20px;color:black'>Sorry, there was an error uploading your file.</div>;";   echo '</br>';
+				// echo "Sorry, there was an error uploading your file.";   echo '</br>';
 			}
 		}
 		
 	$sql = "INSERT INTO client "."VALUES('$client_id', '$client_password', '$name', '$sex', '$birth_date', '$maritial_status', '$nid', '$phone', '$address', '$policy_id', '$agent_id','$profileImage')";
 	
 	if ($conn->query($sql) === true) {
-			echo "New Client ADDED";  echo '</br>';
+			echo "<div style='font-size:20px;color:black'>New Client ADDED</div>";  echo '</br>';
+			// echo "New Client ADDED";  echo '</br>';
 		} else {
 			echo "Error: " . $sql . "<br>" . $conn->error;  echo '</br>';
 		}
@@ -151,7 +156,8 @@ tr:nth-child(even) {
    $sql = "INSERT INTO nominee "."VALUES('$nominee_id', '$client_id', '$nominee_name', '$nominee_sex', '$nominee_birth_date', '$nominee_nid', '$nominee_relationship','$priority', '$nominee_phone')";
 	
 	if ($conn->query($sql) === true) {
-			echo "New Nominee ADDED";  echo '</br>';
+			echo "<div style='font-size:20px;color:black'>New Nominee ADDED</div>";  echo '</br>';
+			// echo "New Nominee ADDED";  echo '</br>';
 		} else {
 			echo "Error: " . $sql . "<br>" . $conn->error;  echo '</br>';
 		}
