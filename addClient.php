@@ -109,40 +109,12 @@ Phone:         <input type="text" name="nominee_phone" required placeholder="Ent
 <input type="submit" name="submit">
 
 </form>
-				
-<?php
-// if($count=5){
-//     header('location:InsertClient.php');
-// }
-// if(isset($_POST['submit'])){
-//     //Mobile number
-//     if (empty($_POST['phone'])) {
-//         $mb = "required";
-//     }
-//     else {
-        
-//         if (strlen((string)$_POST['phone']) == 10) {
-//             $mb = (int)$_POST['mobnum'];
-//         }
-//         else {
-//             $mb = "mobile number has 10 digit length";
-//         }
-//     }
-// }
-?>				 
+		 
 &nbsp;
-                </div>
-
-            
+                </div>            
         </div>
         <!-- /. PAGE WRAPPER  -->
-
-
     </div>
     <!-- /. WRAPPER  -->
-
-   
-
-
 </body>
 </html>
