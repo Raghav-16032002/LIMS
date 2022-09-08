@@ -86,46 +86,7 @@ Marital Status:  &nbsp;&nbsp;<input type="radio" name="maritial_status" value="S
                  &nbsp;&nbsp;<input type="radio" name="maritial_status" value="Married" required>&nbsp;Married
                  &nbsp;&nbsp;<input type="radio" name="maritial_status" value="Divorce" required>&nbsp;Divorce<br><br>
 National ID:     <input type="text" name="nid" required placeholder="Enter National ID"><br>
-Phone:           <input type="text" name="phone" required placeholder="Enter Phone Number">
-<?php
-// if(isset($_POST['submit'])){
-//     $mb=$phoneno="";
-//     $count=0;
-
-//     //Mobile number
-//     if (empty($_POST['phone'])) {
-//          $mb = "required";
-//          echo $mb;
-//          $count=1;
-
-//     }
-
-//     else 
-//      {
-        
-//          if (preg_match("/^[0-9]*$/",$_POST['phone'])) {
-//             if(strlen($_POST['phone'])==10)
-//             {
-//                 $phoneno=$_POST['phone'];
-//                 $count=5;
-//             }
-//             else
-//             {
-//                 $mb="Please Check Phone Number";
-//                 echo $mb;
-//                 $count=1;
-//             }
-//          }
-//          else
-//          {
-//             $mb="use only numbers";
-//             echo $mb;
-//             $count=1;
-//          }
-//      }
-// }
-// ?>
-<br>
+Phone:           <input type="text" name="phone" required placeholder="Enter Phone Number"><br>
 Address:         <input type="text" name="address" required placeholder="Enter Policy ID"><br>
 Policy ID:       <input type="text" name="policy_id" required placeholder="Enter Agent ID"><br>
 Agent ID:        <input type="text" name="agent_id" value="<?php echo $_SESSION["username"]; ?>" required><br>
