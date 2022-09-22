@@ -84,7 +84,7 @@ tr:nth-child(even) {
 <?php
    
 
-	    $client_id       = $_POST["client_id"];
+	    $client_id       = $_POST['client_id'];
 		$client_password = $_POST["client_password"];
 		$name            = $_POST["name"];
 		$sex             = $_POST["sex"];
@@ -116,7 +116,7 @@ tr:nth-child(even) {
 		// Check if image file is a act
 			$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 			if($check !== false) {
-				echo "<div style='font-size:30px;color:black'>Cliensts profile picture uploaded- </div>" . $check["mime"] . "."; echo '</br>';
+				echo "<div style='font-size:30px;color:black'>Clients profile picture uploaded ! </div>" . $check["mime"] . "."; echo '</br>';
 				// echo "Cliensts profile picture uploaded- " . $check["mime"] . "."; echo '</br>';
 				$uploadOk = 1;
 			} else {

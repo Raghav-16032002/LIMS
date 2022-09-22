@@ -20,7 +20,7 @@
 	
             <div class="navbar-header">
                 	
-                <a class="navbar-brand" href="index.php">ASHRAG</a>
+                <a class="navbar-brand" href="index.php" style='font-size:17px;' >ASHRAG Life Insurance</a>
             </div>
 
             <div class="header-right">

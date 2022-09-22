@@ -62,6 +62,49 @@ tr:nth-child(even) {
 $uniqueId  = time();
 $uniqueId2 = time().'-'.mt_rand();
 
+if(isset($_POST['submit'])){
+    $mb=$phoneno="";
+    $count=0;
+
+    //Mobile number
+    if (empty($_POST['phone'])) {
+         $mb = "required";
+         echo $mb;
+         $count=1;
+
+    }
+
+    else 
+     {
+        
+         if (preg_match("/^[0-9]{10}+$/",$_POST['phone'])) {
+            header("Location:insertClient.php");
+            // if(strlen($_POST['phone'])==10)
+            // {
+            //     $phoneno=$_POST['phone'];
+
+            //     $count=5;
+            //     // alert(strlen($_POST['phone']));
+            //   //  header("Location:insertClient.php");
+                
+            // }
+            // else
+            // {
+            //     $mb="Please Check Phone Number";
+            //     echo $mb;
+            //     $count=1;
+            // }
+         }
+         else
+         {
+            $mb="use only numbers";
+            echo $mb;
+            $count=1;
+         }
+         
+     }
+     
+}
 ?>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
@@ -73,11 +116,11 @@ $uniqueId2 = time().'-'.mt_rand();
 
              
 
-<form action="insertClient.php" method="post" enctype="multipart/form-data">
+<form  action="insertClient.php" method="post" enctype="multipart/form-data">
 Client ID:       <input type="text" name="client_id" value="<?php echo"$uniqueId"; ?>" required><br>
 Client Password: <input type="text" name="client_password" required placeholder="Enter Password"><br>
 Name:            <input type="text" name="name" required placeholder="Enter Name"><br>
-Image		     <input class="img" type="file" name="fileToUpload"/ required> </br>
+Image		     <input class="img" type="file" name="fileToUpload" required> </br>
 GENDER:          &nbsp;&nbsp;<input type="radio" name="sex" required value="Male">&nbsp; Male
                  &nbsp;&nbsp;<input type="radio" name="sex" required value="Female">&nbsp; Female
                  &nbsp;&nbsp;<input type="radio" name="sex" required value="Other">&nbsp; Other<br><br>
@@ -87,6 +130,8 @@ Marital Status:  &nbsp;&nbsp;<input type="radio" name="maritial_status" value="S
                  &nbsp;&nbsp;<input type="radio" name="maritial_status" value="Divorce" required>&nbsp;Divorce<br><br>
 National ID:     <input type="text" name="nid" required placeholder="Enter National ID"><br>
 Phone:           <input type="text" name="phone" required placeholder="Enter Phone Number"><br>
+
+
 Address:         <input type="text" name="address" required placeholder="Enter Policy ID"><br>
 Policy ID:       <input type="text" name="policy_id" required placeholder="Enter Agent ID"><br>
 Agent ID:        <input type="text" name="agent_id" value="<?php echo $_SESSION["username"]; ?>" required><br>
@@ -106,7 +151,7 @@ Priority:      <input type="text" name="priority" required placeholder="Enter Pr
 Phone:         <input type="text" name="nominee_phone" required placeholder="Enter Phone"><br>
 
 
-<input type="submit" name="submit">
+<input type="submit" name="submit"/>
 
 </form>
 		 
