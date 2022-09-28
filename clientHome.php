@@ -285,18 +285,12 @@ tr:nth-child(even) {
 		echo "    <td>".$row["amount"]."</td>\n";
 		echo "    <td>".$row["due"]."</td>\n";
 		echo "    <td>".$row["fine"]."</td>\n";
-
-		
 	}
 	}
 	echo "<br>\n";
 	echo "<br>\n";
 	echo '<b>Payments</b>';
 	echo "</table>\n";
-
-	
-	
-	
 
 echo "\n";
 
@@ -305,18 +299,9 @@ $conn->close();
 ?>
 
                 </div>
-
-            
         </div>
         <!-- /. PAGE WRAPPER  -->
-
-
     </div>
     <!-- /. WRAPPER  -->
-
-   
-    
-
-
 </body>
 </html>
