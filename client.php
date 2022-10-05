@@ -23,6 +23,8 @@
 	float: right;
 	color:white;
 	text-decoration:none;	
+    font-weight:Bolder;
+	text-shadow: -3px 1px 5px #8B0000;
 }
 
 table {

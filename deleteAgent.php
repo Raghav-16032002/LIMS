@@ -65,7 +65,9 @@ tr:nth-child(even) {
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
-<?php include 'header.php'; 
+<?php 
+echo '<script>alert("Delete Agent")</script>';
+include 'header.php'; 
 ?>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
@@ -87,9 +89,9 @@ $agent_id  = $_GET["agent_id"];
 $sql = "DELETE FROM agent WHERE agent_id='$agent_id'";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Record deleted successfully";
+    echo "<div style='font-size:20px;color:black'>Record deleted successfully</div>";
 } else {
-    echo "Error deleting record: " . $conn->error;
+    echo "<div style='font-size:20px;color:black'>Error deleting record: </div>" . $conn->error;
 }
         
 $conn->close();

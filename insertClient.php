@@ -116,11 +116,11 @@ tr:nth-child(even) {
 		// Check if image file is a act
 			$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 			if($check !== false) {
-				echo "<div style='font-size:30px;color:black'>Clients profile picture uploaded ! </div>" . $check["mime"] . "."; echo '</br>';
+				echo "<div style='font-size:20px;color:black'>Clients profile picture uploaded ! </div>" . $check["mime"] . "."; echo '</br>';
 				// echo "Cliensts profile picture uploaded- " . $check["mime"] . "."; echo '</br>';
 				$uploadOk = 1;
 			} else {
-				echo "<div style='font-size:30px;color:black'>File is not an image.</div> "; echo '</br>';
+				echo "<div style='font-size:20px;color:black'>File is not an image.</div> "; echo '</br>';
 				// echo "File is not an image."; echo '</br>';
 				$uploadOk = 0;
 			}
@@ -129,7 +129,7 @@ tr:nth-child(even) {
 		$uploadOk == 1;
 		// Check if $uploadOk is set to 0 by an error
 		if ($uploadOk == 0) {
-			echo "<div style='font-size:30px;color:black'>Sorry, your file was not uploaded.</div>";  echo '</br>';
+			echo "<div style='font-size:20px;color:black'>Sorry, your file was not uploaded.</div>";  echo '</br>';
 			// echo "Sorry, your file was not uploaded.";  echo '</br>';
 		// if everything is ok, try to upload file
 		} else {

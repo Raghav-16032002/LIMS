@@ -49,6 +49,21 @@ tr:nth-child(even) {
 	cursor: default;
 	color:#595959;
 }
+input[type=Button] {
+    width: 10%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0px 8px 1130px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+	font-weight:Bolder;
+	text-shadow: -3px 1px 5px #8B0000;
+}
+input[type=Button]:hover {
+    background-color: #45a049;
+}
 </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -288,10 +303,11 @@ echo '</div>';
 	echo "</table>\n";
 
 	if($agent_id== $username || "Admin" == $username){
-			echo "<td>"."<a  href='deleteClient.php?client_id=".$client_id."'>Delete Client</a>"."</td>\n";
-		}else {
-			echo "<td>"."<a class=\"dis\" href='deleteClient.php?client_id=".$row["client_id"]. "'>Delete Client</a>"."</td>\n";
+			echo "<td>"."<a  href='deleteClient.php?client_id=".$client_id."'><input type='Button' value='Delete Client'></a>"."</td>\n";
 		}
+		//else {
+		// 	echo "<td>"."<a class=\"dis\" href='deleteClient.php?client_id=".$row["client_id"]. "'><input type='Button' value='Delete Client'></a>"."</td>\n";
+		// }
 	
 
 echo "\n";

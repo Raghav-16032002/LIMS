@@ -51,6 +51,19 @@ td, th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
+input[type=Button] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type=Button]:hover {
+    background-color: #45a049;
+}
 </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -119,7 +132,7 @@ include'connection.php';
 	
 	echo "<input type=\"submit\" value=\"UPDATE\">";
 	echo "</form>\n";
-	echo "<a href='deleteAgent.php?agent_id=".$agent_id."'>Delete Agent</a>";
+	echo "<a href='deleteAgent.php?agent_id=".$agent_id."'><input type='Button' value='Delete Agent'></a>";
 echo "</div>\n";
 echo "\n";
 

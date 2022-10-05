@@ -65,7 +65,10 @@ tr:nth-child(even) {
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
-<?php include 'header.php'; 
+
+<?php 
+echo '<script>alert("Delete Client")</script>';
+include 'header.php'; 
 ?>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
@@ -88,27 +91,27 @@ $client_id  = $_GET["client_id"];
 $sql = "DELETE FROM client WHERE client_id='$client_id'";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Client deleted successfully";  echo '</br>';
+    echo "<div style='font-size:20px;color:black'>Client deleted successfully !</div>";  echo '</br>';
 } else {
-    echo "Error deleting Client: " . $conn->error;  echo '</br>';
+    echo "<div style='font-size:20px;color:black'>Error deleting Client: </div>" . $conn->error;  echo '</br>';
 }
 
 // sql to delete nominees
 $sql = "DELETE FROM nominee WHERE client_id='$client_id'";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Nominees deleted successfully";  echo '</br>';
+    echo "<div style='font-size:20px;color:black'>Nominees deleted successfully !</div>";  echo '</br>';
 } else {
-    echo "Error deleting Nominees: " . $conn->error;  echo '</br>';
+    echo "<div style='font-size:20px;color:black'>Error deleting Nominees:</div>" . $conn->error;  echo '</br>';
 }
 
 // sql to delete payments
 $sql = "DELETE FROM payment WHERE client_id='$client_id'";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Payments deleted successfully";  echo '</br>';
+    echo "<div style='font-size:20px;color:black'>Payments deleted successfully !</div>";  echo '</br>';
 } else {
-    echo "Error deleting Payments: " . $conn->error;  echo '</br>';
+    echo "<div style='font-size:20px;color:black'>Error deleting Payments:</div>" . $conn->error;  echo '</br>';
 }
       
 $conn->close();		

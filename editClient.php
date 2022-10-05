@@ -27,7 +27,19 @@ input[type=submit] {
 input[type=submit]:hover {
     background-color: #45a049;
 }
-
+input[type=Button] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type=Button]:hover {
+    background-color: #45a049;
+}
 .btn{
 	background-color: #4CAF50;
 	float: right;
@@ -155,7 +167,7 @@ tr:nth-child(even) {
 			<input type="submit" value="UPDATE" name="submit">
 			</form>
 		<?php
-	echo "<a href='deleteClient.php?client_id=".$client_id."'>Delete Client</a>";
+	echo "<a href='deleteClient.php?client_id=".$client_id."'><input type='Button' value='Delete Client'></a>";
 	
 
 echo "</div>\n";

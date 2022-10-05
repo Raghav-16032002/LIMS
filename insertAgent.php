@@ -91,7 +91,7 @@ include'connection.php';
 	$sql = "INSERT INTO agent "."VALUES('$agent_id','$agent_password','$name', '$branch', '$phone')";
 	
 	if ($conn->query($sql) === true) {
-			echo "New Agent ADDED";
+			echo "<div style='font-size:20px;color:black'>New Agent ADDED</div>";
 		} else {
 			echo "Error: " . $sql . "<br>" . $conn->error;
 		}
