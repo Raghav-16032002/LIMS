@@ -12,6 +12,16 @@ input[type=text], select {
     box-sizing: border-box;
 }
 
+input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
 input[type=submit] {
     width: 100%;
     background-color: #4CAF50;
@@ -44,6 +54,16 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 </style>
+<script>
+    function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add Client</title>
@@ -118,7 +138,8 @@ if(isset($_POST['submit'])){
 
 <form  action="insertClient.php" method="post" enctype="multipart/form-data">
 Client ID:       <input type="text" name="client_id" value="<?php echo"$uniqueId"; ?>" required><br>
-Client Password: <input type="text" name="client_password" required placeholder="Enter Password"><br>
+Client Password: <input type="password" name="client_password" required placeholder="Enter Password" id="myInput"><br>
+<input type='checkbox' onclick='myFunction()'>Show Password<br>
 Name:            <input type="text" name="name" required placeholder="Enter Name"><br>
 Image		     <input class="img" type="file" name="fileToUpload" required> </br>
 GENDER:          &nbsp;&nbsp;<input type="radio" name="sex" required value="Male">&nbsp; Male
@@ -132,14 +153,14 @@ National ID:     <input type="text" name="nid" required placeholder="Enter Natio
 Phone:           <input type="text" name="phone" required placeholder="Enter Phone Number"><br>
 
 
-Address:         <input type="text" name="address" required placeholder="Enter Policy ID"><br>
-Policy ID:       <input type="text" name="policy_id" required placeholder="Enter Agent ID"><br>
-Agent ID:        <input type="text" name="agent_id" value="<?php echo $=_SESSION["username"]; ?>" required><br>
+Address:         <input type="text" name="address" required placeholder="Enter Address"><br>
+Policy ID:       <input type="text" name="policy_id" required placeholder="Enter Policy ID"><br>
+Agent ID:        <input type="text" name="agent_id" value="<?php echo $_SESSION["username"]; ?>" required><br>
 
 <h3>Nominee Informations </h3>
 
 Nominee ID:    <input type="text" name="nominee_id" value="<?php echo"$uniqueId2"; ?>" required> <br>
-Name:          <input type="text" name="nominee_name" required><br><br>
+Name:          <input type="text" name="nominee_name" required placeholder="Enter Nominee Name"><br><br>
 GENDER:          &nbsp;&nbsp;<input type="radio" name="nominee_sex" value="Male" required>&nbsp; Male
                  &nbsp;&nbsp;<input type="radio" name="nominee_sex" value="Female" required>&nbsp; Female
                  &nbsp;&nbsp;<input type="radio" name="nominee_sex" value="Other" required>&nbsp; Other<br><br>
