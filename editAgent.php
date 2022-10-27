@@ -12,6 +12,15 @@ input[type=text], select {
     border-radius: 4px;
     box-sizing: border-box;
 }
+input[type=password], select {
+    width: 100%;
+    padding: 10px 13px;
+    margin: 3px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 
 input[type=submit] {
     width: 100%;
@@ -65,6 +74,16 @@ input[type=Button]:hover {
     background-color: #45a049;
 }
 </style>
+<script>
+    function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edit Agent</title>
@@ -120,8 +139,9 @@ include'connection.php';
 	    echo "<input type=\"text\" value=\"$agent_id\"name=\"agent_id\"/>"."</br>";
 	while($row = $result->fetch_assoc()) {
 		echo "<label for=\"fname\">PASSWORD</label>";
-	    echo "<input type=\"text\" agent_id=\"fname\" name=\"agent_password\" placeholder=\"password..\" value=\"$row[agent_password]\">";
-		echo "<label for=\"fname\">NAME</label>";
+	    echo "<input type=\"password\" agent_id=\"fname\" name=\"agent_password\" placeholder=\"password..\" id=\"myInput\" value=\"$row[agent_password]\">";
+		echo "<input type='checkbox' onclick='myFunction()'>Show Password<br>";
+        echo "<label for=\"fname\">NAME</label>";
 	    echo "<input type=\"text\" agent_id=\"fname\" name=\"name\" placeholder=\"Your Name..\" value=\"$row[name]\">";
 		echo "<label for=\"fname\">BRANCH</label>";
 		echo "<input type=\"text\" agent_id=\"fname\" name=\"branch\" placeholder=\"Your Branch..\" value=\"$row[branch]\">";

@@ -134,7 +134,7 @@ Phone:           <input type="text" name="phone" required placeholder="Enter Pho
 
 Address:         <input type="text" name="address" required placeholder="Enter Policy ID"><br>
 Policy ID:       <input type="text" name="policy_id" required placeholder="Enter Agent ID"><br>
-Agent ID:        <input type="text" name="agent_id" value="<?php echo $_SESSION["username"]; ?>" required><br>
+Agent ID:        <input type="text" name="agent_id" value="<?php echo $=_SESSION["username"]; ?>" required><br>
 
 <h3>Nominee Informations </h3>
 

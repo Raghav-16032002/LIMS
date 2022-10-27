@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 <style>
@@ -22,8 +23,6 @@
 	float: right;
 	color:white;
 	text-decoration:none;	
-    font-weight:Bolder;
-	text-shadow: -3px 1px 5px #8B0000;
 }
 
 table {
@@ -51,7 +50,7 @@ tr:nth-child(even) {
 </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Agents</title>
+    <title>Policy</title>
 
     <!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
@@ -72,36 +71,30 @@ tr:nth-child(even) {
             
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-head-line">Agents Information  
-			<?php    
-			if ($_SESSION["username"]=="Admin") {
-			echo '<button class="btn" align="center">';
-            echo '<a href="addAgent.php" class="btn">Add Agent</a>';
-            echo '</button>';
-			}
-			?>		
+                        <h1 class="page-head-line">Policy Informations 
+			
 						</h1>
                     </div>
                 </div>
                 
                 <!-- /. ROW  -->
+
 <?php
 
 include'connection.php';
 	
-	$sql = "SELECT agent_id,agent_password,name,branch,phone FROM agent";
+	$sql = "SELECT policy_id,term,health_status,system,payment_method,coverage, age_limit FROM policy";
 	$result = $conn->query($sql);
 	
-	echo "<table class=\"table\">\n";
+    echo "<table class=\"table\">\n";
     echo "  <tr>\n";
-    echo "    <th>AGENT ID</th>\n";
-    echo "    <th>NAME</th>\n";
-    echo "    <th>BRANCH</th>\n";
-    echo "    <th>PHONE</th>\n";
-	if ($_SESSION["username"]=="Admin") {
-    // echo "    <th>PASSWORD</th>\n";
-	echo "    <th>UPDATE</th>\n";
-	}
+    echo "    <th>POLICY ID</th>\n";
+    echo "    <th>TERM</th>\n";
+    echo "    <th>TOTAL AMOUNT</th>\n";
+    echo "    <th>PER MONTH</th>\n";
+	echo "    <th>PAYMENT METHOD</th>\n";
+    echo "    <th>COVERAGE</th>\n";
+    echo "    <th>AGE LIMIT</th>\n";
     echo "  </tr>";
 	
 	if ($result->num_rows > 0) {
@@ -109,24 +102,37 @@ include'connection.php';
 	while($row = $result->fetch_assoc()) {
 		
 		echo "<tr>\n";
-		echo "    <td>".$row["agent_id"]."</td>\n";
-		echo "    <td>".$row["name"]."</td>\n";
-		echo "    <td>".$row["branch"]."</td>\n";
-		echo "    <td>".$row["phone"]."</td>\n";
-		if ($_SESSION["username"]=="Admin") {
-		// echo "    <td>".$row["agent_password"]."</td>\n";
-		echo "    <td>"."<a href='editAgent.php?agent_id=".$row["agent_id"]. "'>Edit</a>"."</td>\n";
-		}
+		echo "    <td>".$row["policy_id"]."</td>\n";
+		echo "    <td>".$row["term"]."</td>\n";
+		echo "    <td>".$row["health_status"]."</td>\n";
+		echo "    <td>".$row["system"]."</td>\n";
+		echo "    <td>".$row["payment_method"]."</td>\n";
+		echo "    <td>".$row["coverage"]."</td>\n";
+		echo "    <td>".$row["age_limit"]."</td>\n";
+		
+		
 	}
 	
 	echo "</table>\n";
-	echo "\n";
+
+	} else {
+    echo "0 results";
 }
 $conn->close();
 ?>
+          
+                        
+		  
+		  
         </div>
         <!-- /. PAGE WRAPPER  -->
+
+
     </div>
-    <!-- /. WRAPPER  -->	
+    <!-- /. WRAPPER  -->
+
+
+
+	
 </body>
 </html>
