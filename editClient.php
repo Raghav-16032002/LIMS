@@ -12,7 +12,15 @@ input[type=text], select {
     border-radius: 4px;
     box-sizing: border-box;
 }
-
+input[type=Password], select {
+    width: 100%;
+    padding: 10px 13px;
+    margin: 3px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 input[type=submit] {
     width: 100%;
     background-color: #4CAF50;
@@ -79,6 +87,16 @@ tr:nth-child(even) {
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
+<script>
+    function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
 <body>
 <?php include 'header.php'; 
 ?>
@@ -139,8 +157,9 @@ tr:nth-child(even) {
 		echo "<label for=\"fname\">CLIENT ID</label>";
 	    echo "<input type=\"text\" client_id=\"fname\" name=\"client_id\" placeholder=\"clients id..\" value=\"$row[client_id]\">";
 		echo "<label for=\"fname\">CLIENT PASSWORD</label>";
-	    echo "<input type=\"text\" client_id=\"fname\" name=\"client_password\" placeholder=\"clients password..\" value=\"$row[client_password]\">";
-		echo "<label for=\"fname\">NAME</label>";
+	    echo "<input type=\"Password\" client_id=\"fname\" name=\"client_password\" placeholder=\"clients password..\" id=\"myInput\" value=\"$row[client_password]\">";
+		echo "<input type='checkbox' onclick='myFunction()'> Show Password<br>";
+        echo "<label for=\"fname\">NAME</label>";
 	    echo "<input type=\"text\" client_id=\"fname\" name=\"name\" placeholder=\"clients name..\" value=\"$row[name]\">";
 		echo "<label for=\"fname\">GENDER</label>";
 		echo "<input type=\"text\" client_id=\"fname\" name=\"sex\" placeholder=\"clients gender..\" value=\"$row[sex]\">";

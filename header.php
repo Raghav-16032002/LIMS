@@ -24,8 +24,8 @@
             </div>
 
             <div class="header-right">
-                 <B style="font-size:20px;font-weight:900">Logout</B>
-                 <a href="<?php echo "logout.php" ?>" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
+                 <!-- <B style="font-size:20px;font-weight:900">Logout</B> -->
+                 <a href="<?php echo "logout.php" ?>" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x">	&nbsp;Logout</i></a>
 
             </div>
         </nav>

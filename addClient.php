@@ -233,7 +233,7 @@ Phone:         <input type="text" name="nominee_phone" required placeholder="Ent
 		if(!mobile.value.match(phExp))
 		{
 			alert("Please Enter Your Correct Phone Number.");
-			mobile.value="";
+			mobile.value="Please Enter 10 Digit Phone Number";
 			mobile.focus(); // set the focus to this input
 			return false;
 		}
@@ -242,7 +242,7 @@ Phone:         <input type="text" name="nominee_phone" required placeholder="Ent
         if(!nid.value.match(NIDExp))
 		{
 			alert("Please Enter Correct National ID.");
-			nid.value="";
+			nid.value="Please Enter 12 Digit National ID";
 			nid.focus(); // set the focus to this input
 			return false;
 		}

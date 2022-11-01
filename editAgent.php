@@ -140,7 +140,7 @@ include'connection.php';
 	while($row = $result->fetch_assoc()) {
 		echo "<label for=\"fname\">PASSWORD</label>";
 	    echo "<input type=\"password\" agent_id=\"fname\" name=\"agent_password\" placeholder=\"password..\" id=\"myInput\" value=\"$row[agent_password]\">";
-		echo "<input type='checkbox' onclick='myFunction()'>Show Password<br>";
+		echo "<input type='checkbox' onclick='myFunction()'> Show Password<br>";
         echo "<label for=\"fname\">NAME</label>";
 	    echo "<input type=\"text\" agent_id=\"fname\" name=\"name\" placeholder=\"Your Name..\" value=\"$row[name]\">";
 		echo "<label for=\"fname\">BRANCH</label>";
