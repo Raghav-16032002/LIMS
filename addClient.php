@@ -82,49 +82,49 @@ tr:nth-child(even) {
 $uniqueId  = time();
 $uniqueId2 = time().'-'.mt_rand();
 
-if(isset($_POST['submit'])){
-    $mb=$phoneno="";
-    $count=0;
+// if(isset($_POST['submit'])){
+//     $mb=$phoneno="";
+//     $count=0;
 
-    //Mobile number
-    if (empty($_POST['phone'])) {
-         $mb = "required";
-         echo $mb;
-         $count=1;
+//     //Mobile number
+//     if (empty($_POST['phone'])) {
+//          $mb = "required";
+//          echo $mb;
+//          $count=1;
 
-    }
+//     }
 
-    else 
-     {
+//     else 
+//      {
         
-         if (preg_match("/^[0-9]{10}+$/",$_POST['phone'])) {
-            header("Location:insertClient.php");
-            // if(strlen($_POST['phone'])==10)
-            // {
-            //     $phoneno=$_POST['phone'];
+//          if (preg_match("/^[0-9]{10}+$/",$_POST['phone'])) {
+//             header("Location:insertClient.php");
+//             // if(strlen($_POST['phone'])==10)
+//             // {
+//             //     $phoneno=$_POST['phone'];
 
-            //     $count=5;
-            //     // alert(strlen($_POST['phone']));
-            //   //  header("Location:insertClient.php");
+//             //     $count=5;
+//             //     // alert(strlen($_POST['phone']));
+//             //   //  header("Location:insertClient.php");
                 
-            // }
-            // else
-            // {
-            //     $mb="Please Check Phone Number";
-            //     echo $mb;
-            //     $count=1;
-            // }
-         }
-         else
-         {
-            $mb="use only numbers";
-            echo $mb;
-            $count=1;
-         }
+//             // }
+//             // else
+//             // {
+//             //     $mb="Please Check Phone Number";
+//             //     echo $mb;
+//             //     $count=1;
+//             // }
+//          }
+//          else
+//          {
+//             $mb="use only numbers";
+//             echo $mb;
+//             $count=1;
+//          }
          
-     }
+//      }
      
-}
+// }
 ?>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
@@ -149,8 +149,8 @@ Birth Date:      &nbsp;&nbsp;<input type="date" name="birth_date" required><br><
 Marital Status:  &nbsp;&nbsp;<input type="radio" name="maritial_status" value="Single" required>&nbsp;Single
                  &nbsp;&nbsp;<input type="radio" name="maritial_status" value="Married" required>&nbsp;Married
                  &nbsp;&nbsp;<input type="radio" name="maritial_status" value="Divorce" required>&nbsp;Divorce<br><br>
-National ID:     <input type="text" name="nid" required placeholder="Enter National ID"><br>
-Phone:           <input type="text" name="phone" required placeholder="Enter Phone Number"><br>
+National ID:     <input type="text" name="nid" required placeholder="Enter National ID" id="NID"><br>
+Phone:           <input type="text" name="phone" required placeholder="Enter Phone Number" id="Mobile"><br>
 
 
 Address:         <input type="text" name="address" required placeholder="Enter Address"><br>
@@ -159,7 +159,7 @@ Agent ID:        <input type="text" name="agent_id" value="<?php echo $_SESSION[
 
 <h3>Nominee Informations </h3>
 
-Nominee ID:    <input type="text" name="nominee_id" value="<?php echo"$uniqueId2"; ?>" required> <br>
+Nominee ID:    <input type="text" name="nominee_id" value="<?php echo"$uniqueId2"; ?>" required > <br>
 Name:          <input type="text" name="nominee_name" required placeholder="Enter Nominee Name"><br><br>
 GENDER:          &nbsp;&nbsp;<input type="radio" name="nominee_sex" value="Male" required>&nbsp; Male
                  &nbsp;&nbsp;<input type="radio" name="nominee_sex" value="Female" required>&nbsp; Female
@@ -172,7 +172,7 @@ Priority:      <input type="text" name="priority" required placeholder="Enter Pr
 Phone:         <input type="text" name="nominee_phone" required placeholder="Enter Phone"><br>
 
 
-<input type="submit" name="submit"/>
+<input type="submit" name="submit" onclick="return checkdetails();"/>
 
 </form>
 		 
@@ -184,3 +184,102 @@ Phone:         <input type="text" name="nominee_phone" required placeholder="Ent
     <!-- /. WRAPPER  -->
 </body>
 </html>
+<script language="javascript" type="text/javascript">
+
+	function checkdetails(){
+		// var FName = document.getElementById('FName');
+		// var LName = document.getElementById('LName');
+		// //var Email = document.getElementById('Email');
+		// var Area = document.getElementById('Area');
+		// var password = document.getElementById('password');
+		// var confirmpassword = document.getElementById('confirmPassword');
+		
+		//var EmailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+		
+        
+		// if(FName.value == ""){
+        //     alert("Please Enter Your First Name.");
+		// 	FName.focus(); // set the focus to this input
+		// 	return false;
+		// }
+
+		// if(LName.value == ""){
+        //     alert("Please Enter Your Last Name.");
+		// 	LName.focus(); // set the focus to this input
+		// 	return false;
+		// }
+
+		
+
+        // if(!Email.value.match(EmailExp))
+		// {
+		// 	alert("Please Enter Your Correct Email Address.");
+		// 	Email.value="";
+		// 	Email.focus(); // set the focus to this input
+		// 	return false;
+		// }
+
+		
+		var mobile = document.getElementById('Mobile');
+		var phExp = /[6-9][0-9]{9}/;
+
+		// if(mobile.value == "")
+		// {
+		// 	alert('Please Enter PhoneNo.');	
+		// 	mobile.focus();
+		// 	return false;
+		// }
+
+		if(!mobile.value.match(phExp))
+		{
+			alert("Please Enter Your Correct Phone Number.");
+			mobile.value="";
+			mobile.focus(); // set the focus to this input
+			return false;
+		}
+        var nid = document.getElementById('NID');
+        var NIDExp = /[1-9][0-9]{11}/;
+        if(!nid.value.match(NIDExp))
+		{
+			alert("Please Enter Correct National ID.");
+			nid.value="";
+			nid.focus(); // set the focus to this input
+			return false;
+		}
+		// if(Area.value == ""){
+        //     alert("Please Enter Your Area in Mehsana.");
+		// 	Area.focus(); // set the focus to this input
+		// 	return false;
+		// }
+
+		// if(password.value == ""){
+		// 	alert('Please Enter Password.');	
+		// 	password.focus();
+		// 	return false;
+		// }
+		// if(password.value.length < 8)
+		// {
+		// 	alert('Please Enter Minimum 8 Character For Password.');
+		// 	password.focus();
+		// 	return false;
+		// }
+		
+		// if(confirmpassword.value == "" ){
+		// 	alert("Please enter confirm Password");
+		// 	confirmpassword.focus();		
+		// 	return false;
+		// }
+				
+		// if((password.value) != (confirmpassword.value)){
+		// 	alert("Password and Confirm Password should be same! Re-enter confirm-password!");
+		// 	confirmpassword.value = "";
+		// 	confirmpassword.focus();	   
+		// 	return false;
+		// }	
+
+		
+	
+		
+		return true;
+	}
+</script>
