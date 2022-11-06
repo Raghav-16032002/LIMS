@@ -138,9 +138,9 @@ $uniqueId2 = time().'-'.mt_rand();
 
 <form  action="insertClient.php" method="post" enctype="multipart/form-data">
 Client ID:       <input type="text" name="client_id" value="<?php echo"$uniqueId"; ?>" required><br>
-Client Password: <input type="password" name="client_password" required placeholder="Enter Password" id="myInput"><br>
+Client Password: <input type="password" name="client_password" required  placeholder="Enter Password" id="myInput"><br>
 <input type='checkbox' onclick='myFunction()'>Show Password<br>
-Name:            <input type="text" name="name" required placeholder="Enter Name"><br>
+Name:            <input type="text" name="name" required placeholder="Enter Full Name" id="NAME"><br>
 Image		     <input class="img" type="file" name="fileToUpload" required> </br>
 GENDER:          &nbsp;&nbsp;<input type="radio" name="sex" required value="Male">&nbsp; Male
                  &nbsp;&nbsp;<input type="radio" name="sex" required value="Female">&nbsp; Female
@@ -149,8 +149,8 @@ Birth Date:      &nbsp;&nbsp;<input type="date" name="birth_date" required><br><
 Marital Status:  &nbsp;&nbsp;<input type="radio" name="maritial_status" value="Single" required>&nbsp;Single
                  &nbsp;&nbsp;<input type="radio" name="maritial_status" value="Married" required>&nbsp;Married
                  &nbsp;&nbsp;<input type="radio" name="maritial_status" value="Divorce" required>&nbsp;Divorce<br><br>
-National ID:     <input type="text" name="nid" required placeholder="Enter National ID" id="NID"><br>
-Phone:           <input type="text" name="phone" required placeholder="Enter Phone Number" id="Mobile"><br>
+National ID:     <input type="text" name="nid" required placeholder="Enter 12 Digit National ID" id="NID"><br>
+Phone:           <input type="text" name="phone" required placeholder="Enter 10 Digit Phone Number" id="Mobile"><br>
 
 
 Address:         <input type="text" name="address" required placeholder="Enter Address"><br>
@@ -160,16 +160,16 @@ Agent ID:        <input type="text" name="agent_id" value="<?php echo $_SESSION[
 <h3>Nominee Informations </h3>
 
 Nominee ID:    <input type="text" name="nominee_id" value="<?php echo"$uniqueId2"; ?>" required > <br>
-Name:          <input type="text" name="nominee_name" required placeholder="Enter Nominee Name"><br><br>
+Name:          <input type="text" name="nominee_name" required placeholder="Enter Nominee Full Name" id="NNAME"><br><br>
 GENDER:          &nbsp;&nbsp;<input type="radio" name="nominee_sex" value="Male" required>&nbsp; Male
                  &nbsp;&nbsp;<input type="radio" name="nominee_sex" value="Female" required>&nbsp; Female
                  &nbsp;&nbsp;<input type="radio" name="nominee_sex" value="Other" required>&nbsp; Other<br><br>
                  <!-- <input type="text" name="nominee_sex" required><br> -->
 Birth Date:    <input type="date" name="nominee_birth_date" required><br><br>
-National ID:   <input type="text" name="nominee_nid" required placeholder="Enter National ID"><br>
-Relationship:  <input type="text" name="nominee_relationship" required placeholder="Enter Relationship"><br>
-Priority:      <input type="text" name="priority" required placeholder="Enter Priority"><br>
-Phone:         <input type="text" name="nominee_phone" required placeholder="Enter Phone"><br>
+National ID:   <input type="text" name="nominee_nid" required placeholder="Enter 12 Digit National ID" id="NNID"><br>
+Relationship:  <input type="text" name="nominee_relationship" required placeholder="Enter Relationship With Client"><br>
+Priority:      <input type="text" name="priority" required placeholder="Enter Nominee Priority"><br>
+Phone:         <input type="text" name="nominee_phone" required placeholder="Enter 10 Digit Phone Number" id="NMobile"><br>
 
 
 <input type="submit" name="submit" onclick="return checkdetails();"/>
@@ -187,99 +187,78 @@ Phone:         <input type="text" name="nominee_phone" required placeholder="Ent
 <script language="javascript" type="text/javascript">
 
 	function checkdetails(){
-		// var FName = document.getElementById('FName');
-		// var LName = document.getElementById('LName');
-		// //var Email = document.getElementById('Email');
-		// var Area = document.getElementById('Area');
-		// var password = document.getElementById('password');
-		// var confirmpassword = document.getElementById('confirmPassword');
-		
-		//var EmailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
-		
-        
-		// if(FName.value == ""){
-        //     alert("Please Enter Your First Name.");
-		// 	FName.focus(); // set the focus to this input
-		// 	return false;
-		// }
-
-		// if(LName.value == ""){
-        //     alert("Please Enter Your Last Name.");
-		// 	LName.focus(); // set the focus to this input
-		// 	return false;
-		// }
-
-		
-
-        // if(!Email.value.match(EmailExp))
-		// {
-		// 	alert("Please Enter Your Correct Email Address.");
-		// 	Email.value="";
-		// 	Email.focus(); // set the focus to this input
-		// 	return false;
-		// }
-
-		
-		var mobile = document.getElementById('Mobile');
-		var phExp = /[6-9][0-9]{9}/;
-
-		// if(mobile.value == "")
-		// {
-		// 	alert('Please Enter PhoneNo.');	
-		// 	mobile.focus();
-		// 	return false;
-		// }
-
-		if(!mobile.value.match(phExp))
+        //Name Validation
+        var name=document.getElementById('NAME');
+        var NameExp=/^[a-zA-Z ]{2,30}$/;
+        if(!name.value.match(NameExp))
 		{
-			alert("Please Enter Your Correct Phone Number.");
-			mobile.value="Please Enter 10 Digit Phone Number";
-			mobile.focus(); // set the focus to this input
+			alert("Please Don't Enter Digits in Name");
+			name.focus(); // set the focus to this input
 			return false;
 		}
+
+        //Password Validation
+        var password = document.getElementById('myInput');
+        if(password.value.length < 4)
+		{
+			alert('Please Enter Minimum 4 Character For Password.');
+			password.focus();
+			return false;
+		}
+    
+        //National Id Validation
         var nid = document.getElementById('NID');
         var NIDExp = /[1-9][0-9]{11}/;
         if(!nid.value.match(NIDExp))
 		{
-			alert("Please Enter Correct National ID.");
-			nid.value="Please Enter 12 Digit National ID";
+			alert("Please Enter 12 Digit National ID");
+			// nid.value="Please Enter 12 Digit National ID";
 			nid.focus(); // set the focus to this input
 			return false;
 		}
-		// if(Area.value == ""){
-        //     alert("Please Enter Your Area in Mehsana.");
-		// 	Area.focus(); // set the focus to this input
-		// 	return false;
-		// }
 
-		// if(password.value == ""){
-		// 	alert('Please Enter Password.');	
-		// 	password.focus();
-		// 	return false;
-		// }
-		// if(password.value.length < 8)
-		// {
-		// 	alert('Please Enter Minimum 8 Character For Password.');
-		// 	password.focus();
-		// 	return false;
-		// }
-		
-		// if(confirmpassword.value == "" ){
-		// 	alert("Please enter confirm Password");
-		// 	confirmpassword.focus();		
-		// 	return false;
-		// }
-				
-		// if((password.value) != (confirmpassword.value)){
-		// 	alert("Password and Confirm Password should be same! Re-enter confirm-password!");
-		// 	confirmpassword.value = "";
-		// 	confirmpassword.focus();	   
-		// 	return false;
-		// }	
+        // Mobile Number Validation
+		var mobile = document.getElementById('Mobile');
+		var phExp = /[6-9][0-9]{9}/;
+		if(!mobile.value.match(phExp))
+		{
+			alert("Please Enter 10 Digit Mobile Number.");
+			// mobile.value="Please Enter 10 Digit Phone Number";
+			mobile.focus(); // set the focus to this input
+			return false;
+		}
 
-		
-	
-		
+        //Nominee Name Validation
+        var name=document.getElementById('NNAME');
+        var NameExp=/^[a-zA-Z ]{2,30}$/;
+        if(!name.value.match(NameExp))
+		{
+			alert("Please Don't Enter Digits in Name");
+			name.focus(); // set the focus to this input
+			return false;
+		}
+
+        //Nominee National Id Validation
+        var nid = document.getElementById('NNID');
+        var NIDExp = /[1-9][0-9]{11}/;
+        if(!nid.value.match(NIDExp))
+		{
+			alert("Please Enter 12 Digit National ID");
+			nid.focus(); // set the focus to this input
+			return false;
+		}
+        
+        // Nominee Mobile Number Validation
+		var mobile = document.getElementById('NMobile');
+		var phExp = /[6-9][0-9]{9}/;
+		if(!mobile.value.match(phExp))
+		{
+			alert("Please Enter 10 Digit Mobile Number.");
+			// mobile.value="Please Enter 10 Digit Phone Number";
+			mobile.focus(); // set the focus to this input
+			return false;
+		}
+
 		return true;
 	}
 </script>

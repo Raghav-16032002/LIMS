@@ -75,7 +75,7 @@ tr:nth-child(even) {
 
             <div class="header-right">
 			
-                 <a href="<?php echo "logout.php" ?>" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
+                 <a href="<?php echo "logout.php" ?>" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x">Logout</i></a>
 
             </div>
         </nav>
