@@ -171,7 +171,6 @@ Relationship:  <input type="text" name="nominee_relationship" required placehold
 Priority:      <input type="text" name="priority" required placeholder="Enter Nominee Priority"><br>
 Phone:         <input type="text" name="nominee_phone" required placeholder="Enter 10 Digit Phone Number" id="NMobile"><br>
 
-
 <input type="submit" name="submit" onclick="return checkdetails();"/>
 
 </form>
