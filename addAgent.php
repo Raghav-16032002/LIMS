@@ -116,17 +116,26 @@ Phone:           <input type="text" name="phone" required placeholder="Enter 10 
 
 </body>
 </html>
+
+
 <script language="javascript" type="text/javascript">
 
 	function checkdetails(){
         //Password Validation
         var password = document.getElementById('myInput');
-        if(password.value.length < 4)
+        var passwordExp=/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+        if(!password.value.match(passwordExp))
 		{
-			alert('Please Enter Minimum 4 Character For Password.');
+			alert('Please Enter Minimum eight characters, at least one letter, one number and one special character');
 			password.focus();
 			return false;
 		}
+        // if(password.value.length < 4)
+		// {
+		// 	alert('Please Enter Minimum 4 Character For Password.');
+		// 	password.focus();
+		// 	return false;
+		// }
 
         //Name Validation
         var name=document.getElementById('Name');
@@ -150,7 +159,7 @@ Phone:           <input type="text" name="phone" required placeholder="Enter 10 
         
         // Mobile Number Validation
 		var mobile = document.getElementById('Mobile');
-		var phExp = /[6-9][0-9]{9}/;
+		var phExp = /^[6-9][0-9]{9}$/;
 		if(!mobile.value.match(phExp))
 		{
 			alert("Please Enter 10 Digit Mobile Number.");

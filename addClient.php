@@ -82,49 +82,7 @@ tr:nth-child(even) {
 $uniqueId  = time();
 $uniqueId2 = time().'-'.mt_rand();
 
-// if(isset($_POST['submit'])){
-//     $mb=$phoneno="";
-//     $count=0;
 
-//     //Mobile number
-//     if (empty($_POST['phone'])) {
-//          $mb = "required";
-//          echo $mb;
-//          $count=1;
-
-//     }
-
-//     else 
-//      {
-        
-//          if (preg_match("/^[0-9]{10}+$/",$_POST['phone'])) {
-//             header("Location:insertClient.php");
-//             // if(strlen($_POST['phone'])==10)
-//             // {
-//             //     $phoneno=$_POST['phone'];
-
-//             //     $count=5;
-//             //     // alert(strlen($_POST['phone']));
-//             //   //  header("Location:insertClient.php");
-                
-//             // }
-//             // else
-//             // {
-//             //     $mb="Please Check Phone Number";
-//             //     echo $mb;
-//             //     $count=1;
-//             // }
-//          }
-//          else
-//          {
-//             $mb="use only numbers";
-//             echo $mb;
-//             $count=1;
-//          }
-         
-//      }
-     
-// }
 ?>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
@@ -198,16 +156,24 @@ Phone:         <input type="text" name="nominee_phone" required placeholder="Ent
 
         //Password Validation
         var password = document.getElementById('myInput');
-        if(password.value.length < 4)
+        var passwordExp=/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+        if(!password.value.match(passwordExp))
 		{
-			alert('Please Enter Minimum 4 Character For Password.');
+			alert('Please Enter Minimum eight characters, at least one letter, one number and one special character');
 			password.focus();
 			return false;
 		}
+        // var password = document.getElementById('myInput');
+        // if(password.value.length < 4)
+		// {
+		// 	alert('Please Enter Minimum 4 Character For Password.');
+		// 	password.focus();
+		// 	return false;
+		// }
     
         //National Id Validation
         var nid = document.getElementById('NID');
-        var NIDExp = /[1-9][0-9]{11}/;
+        var NIDExp = /^[1-9][0-9]{11}$/;
         if(!nid.value.match(NIDExp))
 		{
 			alert("Please Enter 12 Digit National ID");
@@ -218,7 +184,7 @@ Phone:         <input type="text" name="nominee_phone" required placeholder="Ent
 
         // Mobile Number Validation
 		var mobile = document.getElementById('Mobile');
-		var phExp = /[6-9][0-9]{9}/;
+		var phExp = /^[6-9][0-9]{9}$/;
 		if(!mobile.value.match(phExp))
 		{
 			alert("Please Enter 10 Digit Mobile Number.");
@@ -239,7 +205,7 @@ Phone:         <input type="text" name="nominee_phone" required placeholder="Ent
 
         //Nominee National Id Validation
         var nid = document.getElementById('NNID');
-        var NIDExp = /[1-9][0-9]{11}/;
+        var NIDExp = /^[1-9][0-9]{11}$/;
         if(!nid.value.match(NIDExp))
 		{
 			alert("Please Enter 12 Digit National ID");
@@ -249,7 +215,7 @@ Phone:         <input type="text" name="nominee_phone" required placeholder="Ent
         
         // Nominee Mobile Number Validation
 		var mobile = document.getElementById('NMobile');
-		var phExp = /[6-9][0-9]{9}/;
+		var phExp = /^[6-9][0-9]{9}$/;
 		if(!mobile.value.match(phExp))
 		{
 			alert("Please Enter 10 Digit Mobile Number.");
