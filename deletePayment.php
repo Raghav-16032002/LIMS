@@ -53,7 +53,7 @@ tr:nth-child(even) {
 </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Delete Nominee</title>
+    <title>Delete Payment</title>
     <!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
@@ -65,16 +65,18 @@ tr:nth-child(even) {
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
-<?php include 'header.php'; 
+<?php 
+echo '<script>alert("Delete Nominee")</script>';
+include 'header.php'; 
 ?>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
             
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-head-line">Nominee Status
+                        <h1 class="page-head-line">Payment Status
 						<button class="btn" align="center"> 
-                        <a href="addNominee.php" class="btn">Add Nominee</a>
+                        <a href="addPayment.php" class="btn">Add Payment</a>
                         </button>
 						</h1>
                     
@@ -82,13 +84,12 @@ tr:nth-child(even) {
 				
 
 <?php
-echo '<script>alert("Delete Nominee")</script>';
+	
 include 'connection.php';
-
-$nominee_id  = $_GET["nominee_id"];
+$recipt_no  = $_GET["recipt_no"];
 
 // sql to delete a record
-$sql = "DELETE FROM nominee WHERE nominee_id='$nominee_id'";
+$sql = "DELETE FROM payment WHERE recipt_no='$recipt_no'";
 
 if ($conn->query($sql) === TRUE) {
     echo "Record deleted successfully";
@@ -98,21 +99,10 @@ if ($conn->query($sql) === TRUE) {
         
 $conn->close();
 ?>
-		
-
-                </div>
-
-            
+                </div>  
         </div>
         <!-- /. PAGE WRAPPER  -->
-
-
     </div>
     <!-- /. WRAPPER  -->
-
-   
-    
-
-
 </body>
 </html>

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 <style>
@@ -10,20 +11,6 @@ input[type=text], select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-}
-input[type=Button] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type=Button]:hover {
-    background-color: #45a049;
 }
 
 input[type=submit] {
@@ -38,6 +25,20 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
+    background-color: #45a049;
+}
+input[type=Button] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=Button]:hover {
     background-color: #45a049;
 }
 
@@ -67,7 +68,7 @@ tr:nth-child(even) {
 </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edit Nominee</title>
+    <title>Edit Payment</title>
 
     <!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
@@ -88,60 +89,49 @@ tr:nth-child(even) {
             
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-head-line">Nominee Information  
+                        <h1 class="page-head-line">Payment Information  
 						<button class="btn" align="center"> 
-						<a href="addNominee.php" class="btn">Add Nominee</a>
+						<a href="addPayment.php" class="btn">Add Payment</a>
 						</button>
 						</h1>
                     </div>
                 </div>
                 
                 <!-- /. ROW  -->
-				
+	
 <?php 
-
-   include'connection.php';
-	
-	
-	if($_SERVER["REQUEST_METHOD"] == "GET"){
-		
-		$nominee_id = $_GET["nominee_id"];	
+include'connection.php';
+	$id = "";
+	if($_SERVER["REQUEST_METHOD"] == "GET"){	
+		$recipt_no = $_GET["recipt_no"];
 	}
-	
-	$sql = "SELECT * from nominee where nominee_id='$nominee_id'";
+	$sql = "SELECT recipt_no, client_id, month, amount, due, fine, agent_id from payment where recipt_no='$recipt_no'";
 	$result = $conn->query($sql);
-	
 	echo "<div>\n";
 	
-	  echo '<form action="updateNominee.php" method="post">';
-	   
+	  echo '<form action="updatePayment.php" method="post">';
+	
 	while($row = $result->fetch_assoc()) {
-		
-		echo "<label for=\"fname\">NOMINEE ID</label>";
-	    echo "<input type=\"text\" nominee_id=\"fname\" name=\"nominee_id\" placeholder=\"nominee id..\" value=\"$row[nominee_id]\">";
+		echo "<label for=\"fname\">RECIPT NO</label>";
+	    echo "<input type=\"text\" recipt_no=\"fname\" name=\"recipt_no\" placeholder=\"Your recpit no..\" value=\"$row[recipt_no]\">";
 		echo "<label for=\"fname\">CLIENT ID</label>";
-	    echo "<input type=\"text\" nominee_id=\"fname\" name=\"client_id\" placeholder=\"client id..\" value=\"$row[client_id]\">";
-		echo "<label for=\"fname\">NAME</label>";
-	    echo "<input type=\"text\" nominee_id=\"fname\" name=\"name\" placeholder=\"nominees Name..\" value=\"$row[name]\">";
-		echo "<label for=\"fname\">GENDER</label>";
-		echo "<input type=\"text\" nominee_id=\"fname\" name=\"sex\" placeholder=\"nominees gender..\" value=\"$row[sex]\">";
-		echo "<label for=\"fname\">BIRTH DATE</label>";
-		echo "<input type=\"text\" nominee_id=\"fname\" name=\"birth_date\" placeholder=\"nominees Birth Date..\" value=\"$row[birth_date]\">";
-		echo "<label for=\"fname\">NID</label>";
-		echo "<input type=\"text\" nominee_id=\"fname\" name=\"nid\" placeholder=\"nominees NID..\" value=\"$row[nid]\">";
-		echo "<label for=\"fname\">RELATIONSHIP</label>";
-		echo "<input type=\"text\" nominee_id=\"fname\" name=\"relationship\" placeholder=\"Relationship With Client..\" value=\"$row[relationship]\">";
-		echo "<label for=\"fname\">PRIORITY</label>";
-		echo "<input type=\"text\" nominee_id=\"fname\" name=\"priority\" placeholder=\"Priority..\" value=\"$row[priority]\">";
-		echo "<label for=\"fname\">PHONE</label>";
-		echo "<input type=\"text\" nominee_id=\"fname\" name=\"phone\" placeholder=\"nominees Phone..\" value=\"$row[phone]\">";
+	    echo "<input type=\"text\" recipt_no=\"fname\" name=\"client_id\" placeholder=\"Client Id..\" value=\"$row[client_id]\">";
+		echo "<label for=\"fname\">MONTH</label>";
+		echo "<input type=\"text\" recipt_no=\"fname\" name=\"month\" placeholder=\"Month..\" value=\"$row[month]\">";
+		echo "<label for=\"fname\">AMOUNT</label>";
+		echo "<input type=\"text\" recipt_no=\"fname\" name=\"amount\" placeholder=\"Amount..\" value=\"$row[amount]\">";
+		echo "<label for=\"fname\">DUE</label>";
+		echo "<input type=\"text\" recipt_no=\"fname\" name=\"due\" placeholder=\"Your Due..\" value=\"$row[due]\">";
+		echo "<label for=\"fname\">FINE</label>";
+		echo "<input type=\"text\" recipt_no=\"fname\" name=\"fine\" placeholder=\"Fine..\" value=\"$row[fine]\">";
+		echo "<label for=\"fname\">AGENT ID</label>";
+		echo "<input type=\"text\" recipt_no=\"fname\" name=\"agent_id\" placeholder=\"Agent Id..\" value=\"$row[agent_id]\">";
 		
     }
 	
-	
 	echo "<input type=\"submit\" value=\"UPDATE\">";
 	echo "</form>\n";
-	echo "<a href='deleteNominee.php?nominee_id=".$nominee_id."'><input type='Button' value='Delete Nominee'></a>";
+	echo "<a href='deletePayment.php?recipt_no=".$recipt_no."'><input type='Button' value='Delete Payment'></a>";
 	
 	
 	
@@ -150,6 +140,7 @@ echo "\n";
 
 	
 ?>
+
 
             
         </div>
@@ -160,7 +151,7 @@ echo "\n";
     <!-- /. WRAPPER  -->
 
    
-   
+
 	
 </body>
 </html>

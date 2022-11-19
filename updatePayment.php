@@ -53,7 +53,7 @@ tr:nth-child(even) {
 </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Delete Nominee</title>
+    <title>Update Payment</title>
     <!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
@@ -72,47 +72,37 @@ tr:nth-child(even) {
             
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-head-line">Nominee Status
+                        <h1 class="page-head-line">Update Payment
 						<button class="btn" align="center"> 
-                        <a href="addNominee.php" class="btn">Add Nominee</a>
+                        <a href="addPayment.php" class="btn">Add Payment</a>
                         </button>
 						</h1>
                     
-                
-				
 
-<?php
-echo '<script>alert("Delete Nominee")</script>';
+<?php 
 include 'connection.php';
-
-$nominee_id  = $_GET["nominee_id"];
-
-// sql to delete a record
-$sql = "DELETE FROM nominee WHERE nominee_id='$nominee_id'";
-
-if ($conn->query($sql) === TRUE) {
-    echo "Record deleted successfully";
-} else {
-    echo "Error deleting record: " . $conn->error;
-}
-        
-$conn->close();
-?>
+	$recipt_no = $client_id = $month = $amount = $due = $fine ="";
+	if($_SERVER["REQUEST_METHOD"] == "POST"){
+		$recipt_no       = $_POST["recipt_no"];
+		$client_id       = $_POST["client_id"];
+		$month           = $_POST["month"];
+		$amount          = $_POST["amount"];
+		$due             = $_POST["due"];
+		$fine            = $_POST["fine"];
+		$agent_id        = $_POST["agent_id"];
+	}
+	$sql = "UPDATE payment set recipt_no='$recipt_no' ,client_id='$client_id' ,month='$month',amount='$amount',due='$due',fine='$fine', agent_id='$agent_id' where recipt_no='$recipt_no'";
 		
-
-                </div>
-
-            
+		if ($conn->query($sql) === true) {
+			echo "New record updated successfully";
+		} else {
+			echo "Error: " . $sql . "<br>" . $conn->error;
+		}
+?>
+                </div>          
         </div>
         <!-- /. PAGE WRAPPER  -->
-
-
     </div>
     <!-- /. WRAPPER  -->
-
-   
-    
-
-
 </body>
 </html>

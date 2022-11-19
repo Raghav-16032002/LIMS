@@ -53,7 +53,7 @@ tr:nth-child(even) {
 </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Delete Nominee</title>
+    <title>Insert Payment</title>
     <!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
@@ -72,47 +72,35 @@ tr:nth-child(even) {
             
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-head-line">Nominee Status
+                        <h1 class="page-head-line">Insert Payment
 						<button class="btn" align="center"> 
-                        <a href="addNominee.php" class="btn">Add Nominee</a>
+                        <a href="addPayment.php" class="btn">Add Payment</a>
                         </button>
 						</h1>
                     
-                
-				
-
 <?php
-echo '<script>alert("Delete Nominee")</script>';
+
 include 'connection.php';
 
-$nominee_id  = $_GET["nominee_id"];
-
-// sql to delete a record
-$sql = "DELETE FROM nominee WHERE nominee_id='$nominee_id'";
-
-if ($conn->query($sql) === TRUE) {
-    echo "Record deleted successfully";
-} else {
-    echo "Error deleting record: " . $conn->error;
-}
-        
-$conn->close();
-?>
+	    $recipt_no      = $_POST["recipt_no"];
+		$client_id      = $_POST["client_id"];
+		$month          = $_POST["month"];
+		$amount         = $_POST["amount"];
+		$fine           = $_POST["fine"];
+		$due            = $_POST["due"];
+		$agent_id       = $_POST["agent_id"];
 		
-
-                </div>
-
-            
+	$sql = "INSERT INTO payment "."VALUES('$recipt_no', '$client_id', '$month', '$amount', '$fine', '$due','$agent_id')";
+	if ($conn->query($sql) === true) {
+			echo "New Payment ADDED";
+		} else {
+			echo "Error: " . $sql . "<br>" . $conn->error;
+		}
+?>
+             </div>       
         </div>
         <!-- /. PAGE WRAPPER  -->
-
-
     </div>
     <!-- /. WRAPPER  -->
-
-   
-    
-
-
 </body>
 </html>
