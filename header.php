@@ -13,7 +13,6 @@
    }
 	
 ?>
-
 <body>
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
