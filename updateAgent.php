@@ -79,7 +79,7 @@ tr:nth-child(even) {
 						</h1>
 <?php 
 
-include'connection.php';
+include 'connection.php';
 
 
 	$agent_id = $agent_password = $name = $branch = $phone = "";
