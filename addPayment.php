@@ -107,7 +107,7 @@ Agent Id:      <input type="text" name="agent_id" value="<?php echo $_SESSION["u
  
         //Amount Validation
 		var mobile = document.getElementById('Amount');
-		var phExp = /^[0-9]{5}/;
+		var phExp = /^[0-9]{3}/;
 		if(!mobile.value.match(phExp))
 		{
 			alert("Please Don't Enter Letters in Amount");
@@ -118,7 +118,7 @@ Agent Id:      <input type="text" name="agent_id" value="<?php echo $_SESSION["u
         
         //Due Validation
 		var mobile = document.getElementById('Due');
-		var phExp = /^[0-9]{4}/;
+		var phExp = /^[0-9]{2}/;
 		if(!mobile.value.match(phExp))
 		{
 			alert("Please Don't Enter Letters in Due");
@@ -129,7 +129,7 @@ Agent Id:      <input type="text" name="agent_id" value="<?php echo $_SESSION["u
 
        //Fine Validation
 		var mobile = document.getElementById('Fine');
-		var phExp = /^[0-9]{3}/;
+		var phExp = /^[0-9]{2}/;
 		if(!mobile.value.match(phExp))
 		{
 			alert("Please Don't Enter Letters in Fine");
