@@ -118,7 +118,7 @@ tr:nth-child(even) {
 		echo "    <td>".$row["name"]."</td>\n";
 		echo "    <td>".$row["birth_date"]."</td>\n";
 		echo "    <td>".$row["nid"]."</td>\n";
-		echo "    <td>".$row["phone"]."</td>\n";
+		echo "    <td><a target='_blank' href='https://wa.me/91".$row["phone"]."/?text=hello'>".$row["phone"]."</a></td>\n";
 		echo "    <td>".$row["address"]."</td>\n";
 		echo "    <td>"."<a href='clientStatus.php?client_id=".$row["client_id"]. "'>Client Status</a>"."</td>\n";
 		if($row["agent_id"]== $username || "Admin" == $username){

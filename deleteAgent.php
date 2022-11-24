@@ -81,7 +81,7 @@ include 'header.php';
 						</h1>
 <?php
 
-include'connection.php';
+include 'connection.php';
 
 $agent_id  = $_GET["agent_id"];
 

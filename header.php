@@ -10,8 +10,7 @@
     }
     else {
 	header("Location: clientHome.php");
-   }
-	
+   }	
 ?>
 <body>
     <div id="wrapper">
@@ -25,7 +24,6 @@
             <div class="header-right">
                  <!-- <B style="font-size:20px;font-weight:900">Logout</B> -->
                  <a href="<?php echo "logout.php" ?>" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x">	&nbsp;Logout</i></a>
-
             </div>
         </nav>
         <!-- /. NAV TOP  -->
@@ -48,36 +46,26 @@
                               
                             </div>
                         </div>
-
                     </li>
-
-
                  <li>
                       <a href="client.php"><i class="fa fa-users "></i>CLIENTS</a >  
                  </li> 
                  <li>
                       <a href="agent.php"><i class="fa fa-life-saver "></i>AGENTS</a>
-                            
                  </li>   
                  <li>
                       <a href="policy.php"><i class="fa fa-pencil-square-o "></i>POLICY</a>
-                          
                  </li>     
                  <li>
-                      <a href="nominee.php"><i class="fa fa-heart "></i>NOMINEE</a>
-                            
+                      <a href="nominee.php"><i class="fa fa-heart "></i>NOMINEE</a>                         
                  </li> 
                  <li>
                       <a href="payment.php"><i class="fa fa-credit-card "></i>PAYMENTS</a>
                             
-                 </li>    
-                    
-                     
+                 </li>       
                 </ul>
 
             </div>
-		
-
         </nav>
 		 
 		  
