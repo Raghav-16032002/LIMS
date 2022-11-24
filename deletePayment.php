@@ -66,7 +66,7 @@ tr:nth-child(even) {
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
 <?php 
-echo '<script>alert("Delete Nominee")</script>';
+echo '<script>alert("Delete Payment")</script>';
 include 'header.php'; 
 ?>
         <!-- /. NAV SIDE  -->
