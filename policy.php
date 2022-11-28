@@ -72,16 +72,24 @@ tr:nth-child(even) {
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-head-line">Policy Informations 
-			
+                        <?php    
+			if ($_SESSION["username"]=="Admin") {
+			echo '<button class="btn" align="center">';
+            echo '<a href="addPolicy.php" class="btn">Add Policy</a>';
+            echo '</button>';
+			}
+			?>	
 						</h1>
                     </div>
                 </div>
                 
                 <!-- /. ROW  -->
 
+
+
 <?php
 
-include'connection.php';
+include 'connection.php';
 	
 	$sql = "SELECT policy_id,term,health_status,system,payment_method,coverage, age_limit FROM policy";
 	$result = $conn->query($sql);

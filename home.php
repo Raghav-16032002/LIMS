@@ -160,6 +160,47 @@ tr:nth-child(even) {
                     </div>
 
                 </div>
+                <div class="row">
+                    <div class="col-md-4">
+                            <div class="main-box mb-red">
+                                <a href="#">
+                                    <i class="fa fa-user fa-5x""></i>
+                                    <h5>
+                                    <?php
+                                        $sql = "SELECT count(*) AS c FROM nominee";
+                                        $result = $conn->query($sql);
+            
+                                        while($row = $result->fetch_assoc()) {
+                                        echo "Total Nominee: ";
+                                        echo $row["c"];
+                                        }
+                                        ?>
+                                    </h5>
+                                </a>
+                            </div>
+                        </div>
+              
+                        <div class="col-md-4">
+                        <div class="main-box mb-dull">
+                            <a href="#">
+							 <i class="fa fa-dollar fa-5x"></i>
+                                <h5>
+		                             <?php
+				                     $sql = "SELECT count(*) AS c FROM payment";
+	                                 $result = $conn->query($sql);
+		
+	                                 while($row = $result->fetch_assoc()) {
+				                     echo "Total Payment : ";
+	                                 echo $row["c"];
+	                                 }
+				                     ?>
+                                
+								</h5>
+                            </a>
+                        </div>
+                    </div>
+
+                 </div>
 		
 
                 </div>
