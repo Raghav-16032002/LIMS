@@ -186,13 +186,14 @@ tr:nth-child(even) {
 							 <i class="fa fa-dollar fa-5x"></i>
                                 <h5>
 		                             <?php
-				                     $sql = "SELECT count(*) AS c FROM payment";
+
+				                     $sql = "SELECT amount FROM payment";
 	                                 $result = $conn->query($sql);
-		
-	                                 while($row = $result->fetch_assoc()) {
-				                     echo "Total Payment : ";
-	                                 echo $row["c"];
+                                     $sum=0;
+	                                 while($row = $result->fetch_array()) {
+                                     $sum=$sum+$row['0'];
 	                                 }
+                                     echo "Total Payment : ".$sum;
 				                     ?>
                                 
 								</h5>
